@@ -1,0 +1,47 @@
+<mat-grid-list cols="12" rowHeight="fit" class="sectLogin">
+    <mat-grid-tile [colspan]="isAnimated ? 9 : 3" class="boxFormLogin">
+        <div>
+            <div class="boxHead">
+                <h3 class="title">INICIAR SESIÓN</h3>
+
+                <mat-list class="socialList">
+                    <mat-list-item><mat-icon matPrefix>facebook</mat-icon></mat-list-item>
+                    <mat-list-item><mat-icon matPrefix>facebook</mat-icon></mat-list-item>
+                    <mat-list-item><mat-icon matPrefix>facebook</mat-icon></mat-list-item>
+                </mat-list>
+
+                <h5 class="subtitle">Or use email account</h5>
+            </div>
+
+            <div class="boxBody">
+                <form [formGroup]="formLogin">
+                    <mat-form-field class="inputField">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" />
+                        <mat-icon matPrefix>mail</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field class="inputField">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="'password'" formControlName="password" />
+                        <mat-icon matPrefix>lock</mat-icon>
+                    </mat-form-field>
+                </form>
+            </div>
+
+            <div class="boxFoot">
+                <a class="forgotLink" href="#">Forget your password?</a>
+                <button mat-flat-button color="primary" class="btnSubmit">
+                    Sign In
+                </button>
+            </div>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="isAnimated ? 3 : 9" class="boxFondoPage">
+
+    </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-tile class="boxShapeSecondary" [class.shrink]="isAnimated">
+    <button mat-fab extended color="primary" (click)="onStartClick()"> <mat-icon>favorite</mat-icon> INICIAR </button>
+</mat-grid-tile>

@@ -6,23 +6,33 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "shell-host": "ng s shell-host",
+    "seguridad-module": "ng s seguridad-module",
+    "maestra-module": "ng s maestra-module",
+    "all": "npm-run-all --parallel shell-host seguridad-module maestra-module"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",
+    "@angular/cdk": "^18.2.14",
     "@angular/common": "^18.2.0",
     "@angular/compiler": "^18.2.0",
     "@angular/core": "^18.2.0",
     "@angular/forms": "^18.2.0",
+    "@angular/material": "^18.2.14",
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "@softarc/native-federation-node": "^2.0.10",
+    "es-module-shims": "^1.5.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
+    "@angular-architects/native-federation": "^20.0.6",
+    "@angular-devkit/build-angular": "^18.2.20",
     "@angular/cli": "^18.2.20",
     "@angular/compiler-cli": "^18.2.0",
     "@types/jasmine": "~5.1.0",
@@ -32,6 +42,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^18.2.0",
+    "npm-run-all": "^4.1.5",
     "typescript": "~5.5.2"
   }
 }
