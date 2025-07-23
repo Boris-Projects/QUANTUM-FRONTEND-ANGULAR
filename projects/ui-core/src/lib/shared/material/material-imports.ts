@@ -7,6 +7,8 @@ import { MatListModule } from '@angular/material/list';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 export const MATERIAL_MODULES = [
     MatFormFieldModule,
@@ -16,5 +18,7 @@ export const MATERIAL_MODULES = [
     MatGridListModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatExpansionModule
 ];

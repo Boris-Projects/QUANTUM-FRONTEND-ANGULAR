@@ -1,0 +1,104 @@
+:host {
+    display: block;
+    height: 100%;
+}
+
+.sidebar-container {
+    width: 260px;
+    height: 100%;
+    background: #fff; // Fondo blanco limpio
+    border-right: 1px solid #e0e0e0; // Borde más suave
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.logo-wrapper {
+    padding: 0 24px 20px 24px;
+    text-align: center;
+
+    img {
+        max-width: 120px;
+    }
+}
+
+// Estilos para la lista de navegación
+.mat-mdc-nav-list {
+    padding: 0 16px; // Padding lateral para los items
+
+    // Estilo para CADA item de la lista (enlaces y cabeceras de paneles)
+    .mdc-list-item,
+    .mat-expansion-panel .mat-expansion-panel-header {
+        color: #555;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #f5f5f5; // Un gris claro al pasar el mouse
+        }
+    }
+
+    // --- ESTA ES LA PARTE CLAVE ---
+    // Estilo que se aplica SOLO al enlace de la ruta activa
+    .active-link {
+        position: relative; // Necesario para posicionar el triángulo
+        background-color: #f0e9ff; // Un fondo lila muy claro
+        color: #673ab7; // Color de texto morado (primario)
+
+        .mat-icon {
+            color: #673ab7; // Ícono también morado
+        }
+
+        // El triángulo a la derecha
+        &::after {
+            content: '';
+            position: absolute;
+            right: -17px; // Lo posicionamos fuera del contenedor del item
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid #f0e9ff; // Mismo color del fondo activo
+        }
+    }
+}
+
+
+// --- Ajustes para los paneles desplegables ---
+.mat-expansion-panel {
+    background: transparent;
+
+    .mat-expansion-panel-header {
+        padding: 0 16px; // Mismo padding que los items
+        height: 48px;
+    }
+
+    .mat-panel-title {
+        font-size: 1rem;
+        font-weight: 500; // Un poco más de peso
+
+        .mat-icon {
+            margin-right: 16px;
+        }
+    }
+
+    // Contenido del panel (los sub-items)
+    .mat-expansion-panel-body {
+        padding: 0 0 0 40px; // Padding a la izquierda para indentar los sub-items
+    }
+
+    // Para que el sub-item activo solo cambie de color
+    .active-link {
+        background-color: transparent !important;
+        color: #673ab7 !important;
+        font-weight: 600;
+
+        // Ocultamos el triángulo para los sub-items
+        &::after {
+            display: none;
+        }
+    }
+}
