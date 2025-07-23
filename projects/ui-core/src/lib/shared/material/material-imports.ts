@@ -5,11 +5,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 export const MATERIAL_MODULES = [
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule
 ];
