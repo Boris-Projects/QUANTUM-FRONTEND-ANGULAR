@@ -16,7 +16,15 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {},
+					"options": {
+						"assets": [
+							{
+							"glob": "**/*",
+							"input": "projects/shell-host/public"
+							},
+							"projects/shell-host/src/assets"
+						]
+					},
 					"configurations": {
 						"production": {
 							"target": "shell-host:esbuild:production"
@@ -77,7 +85,8 @@
 							{
 								"glob": "**/*",
 								"input": "projects/shell-host/public"
-							}
+							},
+							"projects/shell-host/src/assets"
 						],
 						"styles": [
 							"projects/shell-host/src/styles.scss"
