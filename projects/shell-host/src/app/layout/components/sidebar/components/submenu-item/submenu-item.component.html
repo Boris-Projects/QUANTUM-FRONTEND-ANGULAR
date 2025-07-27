@@ -1,0 +1,28 @@
+<mat-nav-list>
+    <ng-container *ngFor="let item of items">
+
+        <mat-expansion-panel 
+            *ngIf="item.children && item.children.length > 0" 
+            class="submenu-expansion-panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+                <span>{{ item.label }}</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <shell-host-submenu-item [items]="item.children"></shell-host-submenu-item>
+        </mat-expansion-panel>
+
+        <a 
+            *ngIf="!item.children || item.children.length === 0"
+            mat-list-item
+            [routerLink]="item.route"
+            routerLinkActive="active-submenu-link"
+        >
+            <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+            <span matListItemTitle>{{ item.label }}</span>
+        </a>
+
+    </ng-container>
+</mat-nav-list>

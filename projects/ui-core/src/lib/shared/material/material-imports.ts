@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 export const MATERIAL_MODULES = [
     MatFormFieldModule,
@@ -20,5 +21,6 @@ export const MATERIAL_MODULES = [
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTooltipModule
 ];

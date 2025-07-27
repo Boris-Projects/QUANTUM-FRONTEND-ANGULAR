@@ -1,154 +1,64 @@
 :host {
-    display: block;
+    display: flex; // Permite que el sidebar y el panel de submenú se alineen correctamente
     height: 100%;
 }
 
 .sidebar-container {
-    width: 100px;
+    width: 100px; // Ancho fijo para la barra principal
     height: 100%;
-    background: #fff; // Fondo blanco limpio
-    border-right: 1px solid #e0e0e0; // Borde más suave
+    background: #fff;
+    border-right: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
-    // padding-top: 20px;
+    position: relative; // Necesario para el posicionamiento de elementos hijos
+    z-index: 100; // Asegura que esté por encima del contenido principal
 }
 
 .logo-wrapper {
-    // padding: 0 24px 20px 24px;
     text-align: center;
-
+    padding: 20px 0;
     img {
         max-width: 62.76px;
     }
 }
 
-// Estilos para la lista de navegación
+// Estilos base para la lista de navegación principal
 .mat-mdc-nav-list {
-    padding: 0 16px; // Padding lateral para los items
+    padding: 0 16px;
     margin-top: 50px;
+}
 
-    // Estilo para CADA item de la lista (enlaces y cabeceras de paneles)
-    .mdc-list-item,
-    .mat-expansion-panel .mat-expansion-panel-header {
-        color: #555;
-        border-radius: 8px;
-        margin-bottom: 8px;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+// Estilos del panel que se desliza
+.submenu-panel {
+    position: fixed;
+    top: 0;
+    left: 100px; // Se alinea justo al lado del sidebar principal
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 4px 0 10px -5px rgba(0,0,0,0.1); // Sombra sutil
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    visibility: hidden;
+    z-index: 90;
+    overflow-y: auto;
 
-        &:hover {
-            background-color: #f5f5f5; // Un gris claro al pasar el mouse
-        }
+    &.open {
+        transform: translateX(0);
+        visibility: visible;
     }
 
-    // --- ESTA ES LA PARTE CLAVE ---
-    // Estilo que se aplica SOLO al enlace de la ruta activa
-    .active-link {
-        position: relative;
-        color: #673ab7;
-        padding: 0;
-        text-align: center;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin: 15px auto;
-
-        &:nth-child(1){
-            background-color: #a808ed;
-        }
-
-        &:nth-child(2){
-            background-color: #4ac3c2;
-        }
-
-        &:nth-child(3){
-            background-color: #6744ff;
-        }
-
-        &:nth-child(4){
-            background-color: #ff9044;
-        }
-
-        .mat-icon {
-            position: absolute;
-            color: #ffffff;
-            margin: 0;
-            opacity: 0;
-            width: 30px;
-            height: 30px;
-            font-size: 30px;
-            left: 50%;
-            transform: translate(-50%, 0) scale(0);
-            transition: all ease .3s;
-        }
-
-        .mat-mdc-list-item-title {
-            font-weight: 700;
-            font-size: 20px;
-            color: #ffffff;
-            transition: all ease .3s;
-        }
-
-        // El triángulo a la derecha
-        &::after {
-            content: '';
-            position: absolute;
-            right: -17px; // Lo posicionamos fuera del contenedor del item
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            border-left: 12px solid #f0e9ff; // Mismo color del fondo activo
-        }
-
-        &:hover{
-            .mat-mdc-list-item-title {
-                opacity: 0;
-                transition: all ease .3s;
-            }
-            .mat-icon {
-                opacity: 1;
-                transform: translate(-50%, 0) scale(1);
-                transition: all ease .3s;
-            }
-        }
+    .submenu-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #333;
+        margin: 0;
+        padding: 16px;
     }
 }
 
-
-// --- Ajustes para los paneles desplegables ---
-.mat-expansion-panel {
-    background: transparent;
-
-    .mat-expansion-panel-header {
-        padding: 0 16px; // Mismo padding que los items
-        height: 48px;
-    }
-
-    .mat-panel-title {
-        font-size: 1rem;
-        font-weight: 500; // Un poco más de peso
-
-        .mat-icon {
-            margin-right: 16px;
-        }
-    }
-
-    // Contenido del panel (los sub-items)
-    .mat-expansion-panel-body {
-        padding: 0 0 0 40px; // Padding a la izquierda para indentar los sub-items
-    }
-
-    // Para que el sub-item activo solo cambie de color
-    .active-link {
-        background-color: transparent !important;
-        color: #673ab7 !important;
-        font-weight: 600;
-
-        // Ocultamos el triángulo para los sub-items
-        &::after {
-            display: none;
-        }
-    }
+// El estilo del tooltip debe estar en un lugar global o aquí si solo se usa en este contexto
+.tooltip-on-top {
+    z-index: 9999;
 }
