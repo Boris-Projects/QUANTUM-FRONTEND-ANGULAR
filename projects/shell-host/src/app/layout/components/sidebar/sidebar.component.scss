@@ -4,27 +4,28 @@
 }
 
 .sidebar-container {
-    width: 260px;
+    width: 100px;
     height: 100%;
     background: #fff; // Fondo blanco limpio
     border-right: 1px solid #e0e0e0; // Borde más suave
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    // padding-top: 20px;
 }
 
 .logo-wrapper {
-    padding: 0 24px 20px 24px;
+    // padding: 0 24px 20px 24px;
     text-align: center;
 
     img {
-        max-width: 180px;
+        max-width: 62.76px;
     }
 }
 
 // Estilos para la lista de navegación
 .mat-mdc-nav-list {
     padding: 0 16px; // Padding lateral para los items
+    margin-top: 50px;
 
     // Estilo para CADA item de la lista (enlaces y cabeceras de paneles)
     .mdc-list-item,
@@ -42,12 +43,49 @@
     // --- ESTA ES LA PARTE CLAVE ---
     // Estilo que se aplica SOLO al enlace de la ruta activa
     .active-link {
-        position: relative; // Necesario para posicionar el triángulo
-        background-color: #f0e9ff; // Un fondo lila muy claro
-        color: #673ab7; // Color de texto morado (primario)
+        position: relative;
+        color: #673ab7;
+        padding: 0;
+        text-align: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 15px auto;
+
+        &:nth-child(1){
+            background-color: #a808ed;
+        }
+
+        &:nth-child(2){
+            background-color: #4ac3c2;
+        }
+
+        &:nth-child(3){
+            background-color: #6744ff;
+        }
+
+        &:nth-child(4){
+            background-color: #ff9044;
+        }
 
         .mat-icon {
-            color: #673ab7; // Ícono también morado
+            position: absolute;
+            color: #ffffff;
+            margin: 0;
+            opacity: 0;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            left: 50%;
+            transform: translate(-50%, 0) scale(0);
+            transition: all ease .3s;
+        }
+
+        .mat-mdc-list-item-title {
+            font-weight: 700;
+            font-size: 20px;
+            color: #ffffff;
+            transition: all ease .3s;
         }
 
         // El triángulo a la derecha
@@ -62,6 +100,18 @@
             border-top: 12px solid transparent;
             border-bottom: 12px solid transparent;
             border-left: 12px solid #f0e9ff; // Mismo color del fondo activo
+        }
+
+        &:hover{
+            .mat-mdc-list-item-title {
+                opacity: 0;
+                transition: all ease .3s;
+            }
+            .mat-icon {
+                opacity: 1;
+                transform: translate(-50%, 0) scale(1);
+                transition: all ease .3s;
+            }
         }
     }
 }

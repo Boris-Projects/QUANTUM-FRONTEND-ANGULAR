@@ -1,17 +1,42 @@
 <div class="sidebar-container">
     <div class="logo-wrapper">
-        <img src="assets/img/logo-quantum.png" alt="Quantum Logo" />
+        <img src="assets/img/isotipo-quantum.png" alt="Quantum Logo" />
     </div>
 
     <mat-nav-list>
         <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link"
             [routerLinkActiveOptions]="{exact: true}"
         >
+            
             <mat-icon matListItemIcon>dashboard</mat-icon>
-            <span matListItemTitle>Dashboard</span>
+            <span matListItemTitle>DS</span>            
         </a>
 
-        <mat-expansion-panel class="mat-elevation-z0">
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}"
+        > 
+            <mat-icon matListItemIcon>groups_3</mat-icon>
+            <span matListItemTitle>RH</span>            
+        </a>
+
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}"
+        >            
+            <mat-icon matListItemIcon>local_shipping</mat-icon>
+            <span matListItemTitle>LO</span>            
+        </a>
+
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}"
+        >
+            
+            <mat-icon matListItemIcon>credit_score</mat-icon>
+            <span matListItemTitle>FI</span>            
+        </a>
+
+
+
+        <!-- <mat-expansion-panel class="mat-elevation-z0">
             <mat-expansion-panel-header>
                 <mat-panel-title class="d-flex align-items-center">
                     <mat-icon matListItemIcon>security</mat-icon>
@@ -41,6 +66,6 @@
             <a mat-list-item routerLink="/maestra/productos" routerLinkActive="active-link">
                 <span matListItemTitle>Productos</span>
             </a>
-        </mat-expansion-panel>
+        </mat-expansion-panel> -->
     </mat-nav-list>
 </div>
