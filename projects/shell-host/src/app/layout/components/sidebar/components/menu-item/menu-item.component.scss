@@ -20,21 +20,21 @@
 }
 
 // Colores de fondo específicos
-:host-context(.item-0) ::ng-deep .mat-mdc-list-item {
-    background-color: #a808ed;
-}
+// :host-context(.item-0) ::ng-deep .mat-mdc-list-item {
+//     background-color: #a808ed;
+// }
 
-:host-context(.item-1) ::ng-deep .mat-mdc-list-item {
-    background-color: #4ac3c2;
-}
+// :host-context(.item-1) ::ng-deep .mat-mdc-list-item {
+//     background-color: #4ac3c2;
+// }
 
-:host-context(.item-2) ::ng-deep .mat-mdc-list-item {
-    background-color: #6744ff;
-}
+// :host-context(.item-2) ::ng-deep .mat-mdc-list-item {
+//     background-color: #6744ff;
+// }
 
-:host-context(.item-3) ::ng-deep .mat-mdc-list-item {
-    background-color: #ff9044;
-}
+// :host-context(.item-3) ::ng-deep .mat-mdc-list-item {
+//     background-color: #ff9044;
+// }
 
 // Estilos para el texto y el icono
 :host ::ng-deep {

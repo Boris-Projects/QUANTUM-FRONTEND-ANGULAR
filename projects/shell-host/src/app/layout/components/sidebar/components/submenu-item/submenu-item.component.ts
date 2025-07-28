@@ -11,7 +11,7 @@ import { ISubMenuItem } from '../../interfaces/IMenu.interface';
 		...MATERIAL_MODULES,
 		RouterModule,
 		CommonModule,
-		SubmenuItemComponent
+		// SubmenuItemComponent
 	],
 	templateUrl: './submenu-item.component.html',
 	styleUrl: './submenu-item.component.scss'

@@ -1,0 +1,41 @@
+.page-container {
+    padding: 24px;
+}
+
+.filters-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap; // Para responsiveness
+    gap: 16px; // Espacio entre elementos
+}
+
+.filters-form {
+    display: flex;
+    align-items: center;
+    gap: 16px; // Espacio entre los campos del formulario
+    flex-wrap: wrap;
+}
+
+.search-field {
+    width: 300px;
+}
+
+// Estilos para los badges de estado
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: #e8f5e9; // Un verde claro
+    color: #388e3c; // Un verde oscuro
+}
+
+.status-inactive {
+    background-color: #ffebee; // Un rojo claro
+    color: #d32f2f; // Un rojo oscuro
+}

@@ -45,12 +45,13 @@ a[mat-list-item] {
 
 // Estilo del enlace activo en el submenú
 .active-submenu-link {
-    color: #a808ed; // Un color que coincida con tu paleta
+    // color: #a808ed; // Un color que coincida con tu paleta
     font-weight: 500;
     background-color: #f0e9ff;
 
     .mat-icon {
-        color: #a808ed;
+        // color: #a808ed;
+        vertical-align: top;
     }
 }
 
@@ -61,4 +62,5 @@ a[mat-list-item] {
     font-size: 20px;
     height: 20px;
     width: 20px;
+    vertical-align: top;
 }

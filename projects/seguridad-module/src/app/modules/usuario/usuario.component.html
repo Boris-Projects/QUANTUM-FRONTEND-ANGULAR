@@ -1,0 +1,53 @@
+<div class="page-container">
+    <h1>Gestión de Usuarios</h1>
+
+    <div class="filters-actions-bar">
+        <form [formGroup]="filterForm" (ngSubmit)="loadUsers()" class="filters-form">
+            <mat-form-field appearance="outline" class="search-field">
+                <mat-label>Buscar por nombre...</mat-label>
+                <input matInput formControlName="search">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option [value]="null">Todos</mat-option>
+                    <mat-option [value]="true">Activo</mat-option>
+                    <mat-option [value]="false">Inactivo</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-stroked-button type="submit">Aplicar</button>
+        </form>
+        <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            <span>Crear Usuario</span>
+        </button>
+    </div>
+
+    <seguridad-module-table-general
+        [columns]="userColumns"
+        [data]="userData"
+        [totalItems]="totalItems"
+        (onSortChange)="onSort($any($event))"
+        (onPageChange)="onPage($any($event))">
+    </seguridad-module-table-general>
+</div>
+
+
+<ng-template #statusTemplate let-user>
+    <span class="status-badge" [class.status-active]="user.bActivo" [class.status-inactive]="!user.bActivo">
+        {{ user.bActivo ? 'Activo' : 'Inactivo' }}
+    </span>
+</ng-template>
+
+
+<ng-template #actionsTemplate let-user>
+    <button mat-icon-button color="primary" (click)="editUser(user)" matTooltip="Editar Usuario">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteUser(user)" matTooltip="Eliminar Usuario">
+        <mat-icon>delete</mat-icon>
+    </button>
+</ng-template>

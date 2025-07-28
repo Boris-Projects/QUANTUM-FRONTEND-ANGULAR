@@ -6,6 +6,7 @@
     matTooltipClass="tooltip-on-top"
     [routerLink]="item.route"
     routerLinkActive="active-link"
+    [style.background-color]="item.color"
 >
     <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
     <span matListItemTitle>{{ item.title }}</span>
@@ -19,6 +20,7 @@
     matTooltipClass="tooltip-on-top"
     (click)="onItemClicked()"
     [class.active-link]="isActive"
+    [style.background-color]="item.color"
 >
     <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
     <span matListItemTitle>{{ item.title }}</span>

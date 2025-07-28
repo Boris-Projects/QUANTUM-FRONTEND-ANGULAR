@@ -32,32 +32,46 @@ export class SidebarComponent {
 			icon: 'dashboard'
 			,title: 'DS'
 			,tooltip: 'Dashboard'
+			,color: '#a808ed'
 			,route: '/dashboard'
 		},
         { 
 			icon: 'groups_3'
 			,title: 'RH'
 			,tooltip: 'Recursos Humanos'
+			,color: '#4ac3c2'
 			,children: [
 				{
-                    label: 'Colaboradores',
-                    route: '/seguridad',
+                    label: 'Colaboradores'
+					,icon: 'groups_3'
+                   	,route: '/seguridad'
                     // children: [
                     //     { label: 'Usuarios', route: '/seguridad/usuarios', icon: 'person' },
                     //     { label: 'Perfiles', route: '/seguridad/perfiles', icon: 'group' }
                     // ]
                 },
 				{
-                    label: 'Organigrama',
-                    route: '/seguridad',
-                    children: [
-                        { label: 'Usuarios', route: '/seguridad/usuarios', icon: 'person' },
+                    label: 'Organigrama'
+					,icon: 'groups_3'
+                    ,route: '/seguridad'
+                    ,children: [
+                        {
+							label: 'Usuarios', route: '/seguridad/usuarios', icon: 'person'
+							// ,children: [
+							// 	{ label: 'Usuarios', route: '/seguridad/usuarios', icon: 'person' },
+							// 	{ label: 'Perfiles', route: '/seguridad/perfiles', icon: 'group' }
+							// ]
+						},
                         { label: 'Perfiles', route: '/seguridad/perfiles', icon: 'group' }
                     ]
                 }
 			]
 		},
-        { icon: 'local_shipping', title: 'LO', tooltip: 'Logística'
+        {
+			icon: 'local_shipping'
+			,title: 'LO'
+			,tooltip: 'Logística'
+			,color: '#6744ff'
 			,children: [
 				{
                     label: 'Proveedores',
@@ -69,7 +83,39 @@ export class SidebarComponent {
                 },
 			]
 		},
-        { icon: 'credit_score', title: 'FI', tooltip: 'Finanzas', children: [] },
+        {
+			icon: 'credit_score'
+			,title: 'FI'
+			,tooltip: 'Finanzas'
+			,color: '#ff9044'
+			,children: []
+		},
+		{
+			icon: 'settings'
+			,title: 'CO'
+			,tooltip: 'Configuración'
+			,color: '#44a2ff'
+			,children: [
+				{
+                    label: 'Seguridad'
+					,icon: 'security'
+                    // ,route: '/seguridad'
+                    ,children: [
+                        { label: 'Usuarios', route: '/seguridad/usuario', icon: 'person' },
+                        { label: 'Perfiles', route: '/seguridad/usuario', icon: 'group' }
+                    ]
+                },
+				{
+                    label: 'Maestras'
+					,icon: 'cast_for_education'
+                    ,route: '/maestras'
+                    ,children: [
+                        { label: 'Usuarios', route: '/seguridad/usuario', icon: 'person' },
+                        { label: 'Perfiles', route: '/seguridad/usuario', icon: 'group' }
+                    ]
+                },
+			]
+		},
     ];
 
 

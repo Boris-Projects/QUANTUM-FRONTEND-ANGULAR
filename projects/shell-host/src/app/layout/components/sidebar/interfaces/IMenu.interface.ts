@@ -2,6 +2,7 @@ export interface IMenuItem {
     icon: string;
     tooltip: string; // Cambiado de 'tooltip' a 'title' para mayor claridad
     title: string;
+    color: string;
     route?: string;
     children?: ISubMenuItem[];
 }
@@ -9,7 +10,8 @@ export interface IMenuItem {
 
 export interface ISubMenuItem {
     label: string;
-    route: string;
+    route?: string;
     icon?: string;
+    color?: string;
     children?: ISubMenuItem[];
 }

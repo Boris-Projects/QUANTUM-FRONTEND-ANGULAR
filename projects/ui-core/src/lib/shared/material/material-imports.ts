@@ -11,6 +11,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
+
 export const MATERIAL_MODULES = [
     MatFormFieldModule,
     MatInputModule,
@@ -22,5 +27,9 @@ export const MATERIAL_MODULES = [
     MatToolbarModule,
     MatMenuModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSelectModule
 ];
