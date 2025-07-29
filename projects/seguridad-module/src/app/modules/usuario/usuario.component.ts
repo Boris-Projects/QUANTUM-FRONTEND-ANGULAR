@@ -34,23 +34,17 @@ export class UsuarioComponent {
     @ViewChild('actionsTemplate', { static: true })
     actionsTemplate!: TemplateRef<any>;
 
+    @ViewChild('statusTemplate', { static: true })
+    statusTemplate!: TemplateRef<any>;
+
+    // TABLE
     public userColumns: ITableColumn[] = [];
     public userData: IUsuario[] = [];
     public totalItems: number = 0;
     public filterForm: FormGroup;
-
 	private currentPage?: PageEvent;
-    private currentSort?: ITableSort;
+    private currentSort?: ITableSort;    
 
-    // Aquí pegarías la data que me pasaste
-    private fullUserData: IUsuario[] = [
-      {"iIdUsuario":21,"vUsuario":"bestradas","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":21,"iIdPersona":21,"bChangePassword":true},
-      {"iIdUsuario":22,"vUsuario":"v.estrada","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":22,"iIdPersona":22,"bChangePassword":true},
-      {"iIdUsuario":23,"vUsuario":"test","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":23,"iIdPersona":23,"bChangePassword":true},
-      {"iIdUsuario":24,"vUsuario":"admin","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":24,"iIdPersona":24,"bChangePassword":false},
-      {"iIdUsuario":25,"vUsuario":"test","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":25,"iIdPersona":25,"bChangePassword":false},
-      // ... y el resto de los 200+ registros
-    ];
 
     constructor(private fb: FormBuilder) {
         this.filterForm = this.fb.group({
@@ -66,7 +60,7 @@ export class UsuarioComponent {
             { 
 				key: 'bActivo',
 				label: 'Estado', 
-				// cellTemplate: this.statusTemplate // Usaremos una plantilla para el estado
+				cellTemplate: this.statusTemplate // Usaremos una plantilla para el estado
             },
             { key: 'acciones', label: 'Acciones', cellTemplate: this.actionsTemplate } // Columna personalizada
         ];
@@ -76,6 +70,18 @@ export class UsuarioComponent {
 
     // Simula la llamada a la API con filtros, paginación y ordenamiento
     loadUsers(): void {
+        // Aquí pegarías la data que me pasaste
+        const fullUserData: IUsuario[] = [
+            {"iIdUsuario":18,"vUsuario":"bestradasssss","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":21,"iIdPersona":21,"bChangePassword":true},
+            {"iIdUsuario":19,"vUsuario":"bestradas","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":21,"iIdPersona":21,"bChangePassword":true},
+            {"iIdUsuario":20,"vUsuario":"bestradas","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":21,"iIdPersona":21,"bChangePassword":true},
+            {"iIdUsuario":21,"vUsuario":"bestradas","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":21,"iIdPersona":21,"bChangePassword":true},
+            {"iIdUsuario":22,"vUsuario":"v.estrada","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":22,"iIdPersona":22,"bChangePassword":true},
+            {"iIdUsuario":23,"vUsuario":"test","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":23,"iIdPersona":23,"bChangePassword":true},
+            {"iIdUsuario":24,"vUsuario":"admin","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":24,"iIdPersona":24,"bChangePassword":false},
+            {"iIdUsuario":25,"vUsuario":"test","bActivo":true,"iIdTipoUsuario":1,"iIdPerDet":25,"iIdPersona":25,"bChangePassword":false},
+        // ... y el resto de los 200+ registros
+        ];
         // 1. Obtiene el estado actual de los filtros, orden y paginación
         const filters = this.filterForm.value;
         const sort = this.currentSort;
@@ -86,7 +92,7 @@ export class UsuarioComponent {
         // --- Simulación del Backend ---
 
         // 2. Filtrado: Comienza con la lista completa de datos
-        let filteredData = this.fullUserData.filter(user => {
+        let filteredData = fullUserData.filter(user => {
             const searchFilter = filters.search?.toLowerCase() || '';
             const statusFilter = filters.status;
 
@@ -123,7 +129,7 @@ export class UsuarioComponent {
 
         // Define valores por defecto para la paginación si aún no se ha interactuado con ella
         const pageIndex = page?.pageIndex || 0;
-        const pageSize = page?.pageSize || 10;
+        const pageSize = page?.pageSize || 5;
         
         const startIndex = pageIndex * pageSize;
         const endIndex = startIndex + pageSize;
